@@ -9,15 +9,15 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) { 
     	ctx.write(msg);
-    	// ctx.write(Object) ·½·¨²»»áÊ¹ÏûÏ¢Ğ´Èëµ½Í¨µÀÉÏ£¬Ëû±»»º³åÔÚÁËÄÚ²¿£¬ÄãĞèÒªµ÷ÓÃ ctx.flush() ·½·¨À´°Ñ»º³åÇøÖĞÊı¾İÇ¿ĞĞÊä³ö¡£
-    	// »òÕßÄã¿ÉÒÔÓÃ¸ü¼ò½àµÄ cxt.writeAndFlush(msg) ÒÔ´ïµ½Í¬ÑùµÄÄ¿µÄ¡£
+    	// ctx.write(Object) æ–¹æ³•ä¸ä¼šä½¿æ¶ˆæ¯å†™å…¥åˆ°é€šé“ä¸Šï¼Œä»–è¢«ç¼“å†²åœ¨äº†å†…éƒ¨ï¼Œä½ éœ€è¦è°ƒç”¨ ctx.flush() æ–¹æ³•æ¥æŠŠç¼“å†²åŒºä¸­æ•°æ®å¼ºè¡Œè¾“å‡ºã€‚
+    	// æˆ–è€…ä½ å¯ä»¥ç”¨æ›´ç®€æ´çš„ cxt.writeAndFlush(msg) ä»¥è¾¾åˆ°åŒæ ·çš„ç›®çš„ã€‚
     	System.out.println(((ByteBuf) msg).toString(io.netty.util.CharsetUtil.UTF_8));
     	ctx.flush();
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) { 
-        // µ±³öÏÖÒì³£¾Í¹Ø±ÕÁ¬½Ó
+        // å½“å‡ºç°å¼‚å¸¸å°±å…³é—­è¿æ¥
         cause.printStackTrace();
         ctx.close();
     }

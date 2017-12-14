@@ -7,13 +7,13 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
 
 /**
- * ´¦Àí·şÎñ¶Ë channel.
+ * å¤„ç†æœåŠ¡ç«¯ channel.
  */
 public class DiscardServerHandler extends ChannelInboundHandlerAdapter { // (1)
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) { // (2)
-        // Ä¬Ä¬µØ¶ªÆúÊÕµ½µÄÊı¾İ
+        // é»˜é»˜åœ°ä¸¢å¼ƒæ”¶åˆ°çš„æ•°æ®
         ByteBuf in = ((ByteBuf) msg); // (3)
         try {
 //            while (in.isReadable()) { // (1)
@@ -29,7 +29,7 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter { // (1)
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) { // (4)
-        // µ±³öÏÖÒì³£¾Í¹Ø±ÕÁ¬½Ó
+        // å½“å‡ºç°å¼‚å¸¸å°±å…³é—­è¿æ¥
         cause.printStackTrace();
         ctx.close();
     }

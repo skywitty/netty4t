@@ -33,11 +33,11 @@ public class EchoServer {
              .option(ChannelOption.SO_BACKLOG, 128)          // (5)
              .childOption(ChannelOption.SO_KEEPALIVE, true); // (6)
 
-            // °ó¶¨¶Ë¿Ú£¬¿ªÊ¼½ÓÊÕ½øÀ´µÄÁ¬½Ó
+            // ç»‘å®šç«¯å£ï¼Œå¼€å§‹æ¥æ”¶è¿›æ¥çš„è¿æ¥
             ChannelFuture f = b.bind(port).sync(); // (7)
 
-            // µÈ´ı·şÎñÆ÷  socket ¹Ø±Õ ¡£
-            // ÔÚÕâ¸öÀı×ÓÖĞ£¬Õâ²»»á·¢Éú£¬µ«Äã¿ÉÒÔÓÅÑÅµØ¹Ø±ÕÄãµÄ·şÎñÆ÷¡£
+            // ç­‰å¾…æœåŠ¡å™¨  socket å…³é—­ ã€‚
+            // åœ¨è¿™ä¸ªä¾‹å­ä¸­ï¼Œè¿™ä¸ä¼šå‘ç”Ÿï¼Œä½†ä½ å¯ä»¥ä¼˜é›…åœ°å…³é—­ä½ çš„æœåŠ¡å™¨ã€‚
             f.channel().closeFuture().sync();
         } finally {
             workerGroup.shutdownGracefully();
